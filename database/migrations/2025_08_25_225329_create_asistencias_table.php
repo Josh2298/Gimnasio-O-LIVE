@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('asistencias', function (Blueprint $table) {
             $table->id();
             $table->date('ingreso');
-            $table->int('casillero');
+            $table->integer('casillero');
             $table->time('hora_ing');
             $table->time('hora_sal');
             $table->string('rol');
