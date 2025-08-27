@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('membresias', function (Blueprint $table) {
             $table->id();
             $table->string('plan');
-            $table->double('pago_e');
-            $table->double('pago_qr');
+            $table->double('monto');
             $table->date('fecha_ini');
             $table->date('fecha_fin');
             $table->string('detalle');
@@ -23,10 +22,8 @@ return new class extends Migration
             $table->date('ext_ini');
             $table->date('ext_fin');
             $table->string('detalle_ext');
-            $table->unsignedBigInteger('promocion_id');
-            $table->foreign('promocion_id')->references('id')->on('promociones')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

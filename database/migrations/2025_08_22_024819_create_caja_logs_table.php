@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('caja_logs', function (Blueprint $table) {
             $table->id();
+            $table->double('ingreso');
+            $table->double('egreso');
+            $table->string('descripcion');
+            $table->date('fecha');
             $table->timestamps();
         });
     }

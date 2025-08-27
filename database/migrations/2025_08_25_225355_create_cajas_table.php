@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('cajas', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->string('descripcion');
+            $table->double('utilidad');
+            $table->double('saldo');
+            $table->unsignedBigInteger('caja_log_id');
+            $table->foreign('caja_log_id')->references('id')->on('caja_logs');
             $table->timestamps();
         });
     }

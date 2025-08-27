@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
+            $table->double('pago_e');
+            $table->double('pago_qr');
+            $table->date('fecha_venta');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('item_id');
+            $table->foreign('item_id')->references('id')->on('items');
             $table->timestamps();
         });
     }

@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
+            $table->integer('cantidad');
+            $table->double('precio');
+            $table->string('detalle');
+            $table->unsignedBigInteger('producto_id');
+            $table->foreign('producto_id')->references('id')->on('productos');
+            $table->unsignedBigInteger('promocion_id');
+            $table->foreign('promocion_id')->references('id')->on('promociones');
             $table->timestamps();
         });
     }
