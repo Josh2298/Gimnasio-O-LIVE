@@ -3,17 +3,18 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
 use Illuminate\Database\Seeder;
-use App\Models\//;
-use App\Models\//Asistencia;
-use App\Models\//aja_log;
-use App\Models\//Caja;
-use App\Models\//Categoria;
-use App\Models\//Item;
-use App\Models\//Membresia;
-use App\Models\//Producto;
-use App\Models\//Promocion;
-use App\Models\//Venta;
+use App\Models\User;
+use App\Models\Asistencia;
+use App\Models\Caja_log;
+use App\Models\Caja;
+use App\Models\Categoria;
+use App\Models\Item;
+use App\Models\Membresia;
+use App\Models\Producto;
+use App\Models\Promocion;
+use App\Models\Venta;
 
 class DatabaseSeeder extends Seeder
 {
@@ -30,7 +31,7 @@ class DatabaseSeeder extends Seeder
         // ]);
         //User::create([
         //    'ci'=>'7353263',
-        //   'nombre'=>'Jose',
+        //    'nombre'=>'Jose',
         //    'apellido'=>'Miranda Antezana',
         //    'username'=>'josh2298',
         //    'password'=>'josh2298',
