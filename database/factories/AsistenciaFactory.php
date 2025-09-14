@@ -24,7 +24,6 @@ class AsistenciaFactory extends Factory
             'rol'=>fake()->word(),
             'limpieza'=>fake()->word(),
             'user_id'=>fake()->number()
-
         ];
     }
 }
