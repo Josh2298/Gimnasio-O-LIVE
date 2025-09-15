@@ -11,4 +11,19 @@ class CategoriaController extends Controller
         $categorias=Categoria::get(); //select * from categorias
         return response()->json($categorias); 
     }//CRUD
+
+    public function destroy($id){
+        $categorias=Categoria::find($id);
+        if($categorias){
+            $categorias->delete();
+            return response()->json('Categoria Eliminada',200);
+        }
+        else
+            return response()->json('No existe categoria',409);
+    }
+
+    public function store(Request $request){
+        $categorias=Categoria::create($request->all());
+        return response()->json($categorias);
+    }
 }

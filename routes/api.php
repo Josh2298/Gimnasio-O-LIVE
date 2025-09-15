@@ -33,9 +33,13 @@ Route::get('/mostrarProducto',[ProductoController::class,'index']);
 Route::get('/mostrarPromocion',[PromocionController::class,'index']);
 Route::get('/mostrarVenta',[VentaController::class,'index']);
 
-Route::delete('/usuario/eliminar/{id}',[UserController::class,'destroy']); 
+Route::delete('/usuario/eliminar/{id}',[UserController::class,'destroy']);
+Route::delete('/categoria/eliminar/{id}',[CategoriaController::class,'destroy']);
+Route::delete('/membresia/eliminar/{id}',[¨MembresiaController::class,'destroy']);
 
 Route::post('/usuario/nuevo',[UserController::class,'store']);
+Route::post('/categoria/nuevo',[CategoriaController::class,'store']);
+Route::post('/membresia/nuevo',[MembresiaController::class,'store']);
 //localhost:8000/api/mostrar
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
