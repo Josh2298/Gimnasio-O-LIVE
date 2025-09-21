@@ -33,13 +33,25 @@ Route::get('/mostrarProducto',[ProductoController::class,'index']);
 Route::get('/mostrarPromocion',[PromocionController::class,'index']);
 Route::get('/mostrarVenta',[VentaController::class,'index']);
 
-Route::delete('/usuario/eliminar/{id}',[UserController::class,'destroy']);
+Route::delete('/asistencia/eliminar/{id}',[¨AsistenciaController::class,'destroy']);
 Route::delete('/categoria/eliminar/{id}',[CategoriaController::class,'destroy']);
+Route::delete('/item/eliminar/{id}',[ItemController::class,'destroy']);
+Route::delete('/membresia/eliminar/{id}',[¨MembresiaController::class,'destroy']);
+Route::delete('/producto/eliminar/{id}',[¨ProductoController::class,'destroy']);
+Route::delete('/promocion/eliminar/{id}',[¨PromocionController::class,'destroy']);
+Route::delete('/usuario/eliminar/{id}',[UserController::class,'destroy']);
 Route::delete('/membresia/eliminar/{id}',[¨MembresiaController::class,'destroy']);
 
-Route::post('/usuario/nuevo',[UserController::class,'store']);
+Route::post('/asistencia/nuevo',[AsistenciaController::class,'store']);
 Route::post('/categoria/nuevo',[CategoriaController::class,'store']);
+Route::post('/item/nuevo',[ItemController::class,'store']);
 Route::post('/membresia/nuevo',[MembresiaController::class,'store']);
+Route::post('/producto/nuevo',[ProductoController::class,'store']);
+Route::post('/promocion/nuevo',[PromocionController::class,'store']);
+Route::post('/usuario/nuevo',[UserController::class,'store']);
+Route::post('/venta/nuevo',[VentaController::class,'store']);
+
+Route::put('/usuario/actualizar/{id}',[UserController::class,'update']);
 //localhost:8000/api/mostrar
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

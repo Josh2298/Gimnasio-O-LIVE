@@ -11,4 +11,19 @@ class AsistenciaController extends Controller
         $asistencias=Asistencia::get(); //select * from asistencias
         return response()->json($asistencias); 
     }//CRUD
+
+    public function destroy($id){
+        $asistencias=Asistencia::find($id);
+        if($asistencias){
+            $asistencias->delete();
+            return response()->json('Asistencia Eliminado',200);
+        }
+        else
+            return response()->json('No existe la asistencia', 409);
+    }
+
+    public function store(Request $request){
+        $asistencias=Asistencia::create($request->all());
+        return response()->json($asistencias);
+    }
 }

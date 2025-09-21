@@ -25,4 +25,15 @@ class UserController extends Controller
         $user=User::create($request->all());
         return response()->json($user);
     }
+
+    public function update(Request $request,$id){
+        $user=User::find($id);
+        if($user){
+            $user->update($request);
+            return response()->json('Usuario Actualizado',200);
+        }
+        else{
+            return response()->json('No existe el usuario',409);
+        }
+    }
 }
