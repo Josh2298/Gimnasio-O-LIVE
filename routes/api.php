@@ -22,7 +22,7 @@ use App\Http\Controllers\VentaController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::get('/mostrar',[UserController::class,'index']);
+//Route::get('/mostrar',[UserController::class,'index']);
 Route::get('/mostrarAsistencia',[AsistenciaController::class,'index']);
 Route::get('/mostrarCaja',[CajaController::class,'index']);
 Route::get('/mostrarCaja_log',[Caja_logController::class,'index']);
@@ -39,7 +39,7 @@ Route::delete('/item/eliminar/{id}',[ItemController::class,'destroy']);
 Route::delete('/membresia/eliminar/{id}',[¨MembresiaController::class,'destroy']);
 Route::delete('/producto/eliminar/{id}',[¨ProductoController::class,'destroy']);
 Route::delete('/promocion/eliminar/{id}',[¨PromocionController::class,'destroy']);
-Route::delete('/usuario/eliminar/{id}',[UserController::class,'destroy']);
+//Route::delete('/usuario/eliminar/{id}',[UserController::class,'destroy']);
 Route::delete('/membresia/eliminar/{id}',[¨MembresiaController::class,'destroy']);
 
 Route::post('/asistencia/nuevo',[AsistenciaController::class,'store']);
@@ -48,10 +48,12 @@ Route::post('/item/nuevo',[ItemController::class,'store']);
 Route::post('/membresia/nuevo',[MembresiaController::class,'store']);
 Route::post('/producto/nuevo',[ProductoController::class,'store']);
 Route::post('/promocion/nuevo',[PromocionController::class,'store']);
-Route::post('/usuario/nuevo',[UserController::class,'store']);
+//Route::post('/usuario/nuevo',[UserController::class,'store']);
 Route::post('/venta/nuevo',[VentaController::class,'store']);
 
-Route::put('/usuario/actualizar/{id}',[UserController::class,'update']);
+//Route::put('/usuario/actualizar/{id}',[UserController::class,'update']);
+
+Route::resource('/usuario',UserController::class);
 //localhost:8000/api/mostrar
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

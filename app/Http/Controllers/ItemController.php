@@ -16,7 +16,7 @@ class ItemController extends Controller
         $items=Item::find($id);
         if($items){
             $items->delete();
-            return response()->json('Item Eliminado',200);
+            return $this->index();
         }
         else
             return response()->json('No existe el Item', 409);
@@ -24,6 +24,17 @@ class ItemController extends Controller
 
     public function store(Request $request){
         $items=Item::create($request->all());
-        return response()->json($items);
+        return $this->index();
+    }
+
+    public function update(Request $request,$id){
+        $items=Item::find($id);
+        if($items){
+            $items->update($request->all());
+            return $this->index();
+        }
+        else{
+            return response()->json('No existe el usuario',409);
+        }
     }
 }

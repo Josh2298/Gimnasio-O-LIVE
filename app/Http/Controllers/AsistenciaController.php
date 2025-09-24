@@ -16,7 +16,7 @@ class AsistenciaController extends Controller
         $asistencias=Asistencia::find($id);
         if($asistencias){
             $asistencias->delete();
-            return response()->json('Asistencia Eliminado',200);
+            return $this->index();
         }
         else
             return response()->json('No existe la asistencia', 409);
@@ -24,6 +24,17 @@ class AsistenciaController extends Controller
 
     public function store(Request $request){
         $asistencias=Asistencia::create($request->all());
-        return response()->json($asistencias);
+        return $this->index();
+    }
+
+    public function update(Request $request,$id){
+        $asistencias=Asistencia::find($id);
+        if($asistencias){
+            $asistencias->update($request->all());
+            return $this->index();
+        }
+        else{
+            return response()->json('No existe el usuario',409);
+        }
     }
 }

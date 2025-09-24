@@ -16,7 +16,7 @@ class MembresiaController extends Controller
         $membresias=Membresia::find($id);
         if($membresias){
             $membresias->delete();
-            return response()->json('Membresia Eliminada',200);
+            return $this->index();
         }
         else
             return response()->json('La Membresia no existe',409);
@@ -24,6 +24,17 @@ class MembresiaController extends Controller
 
     public function store(Request $request){
         $membresias=Membresia::create($request->all());
-        return response()->json($membresias);
+        return $this->index();
+    }
+
+    public function update(Request $request,$id){
+        $membresias=Membresia::find($id);
+        if($membresias){
+            $membresias->update($request->all());
+            return $this->index();
+        }
+        else{
+            return response()->json('No existe el usuario',409);
+        }
     }
 }

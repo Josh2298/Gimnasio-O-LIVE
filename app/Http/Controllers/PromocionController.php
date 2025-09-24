@@ -16,7 +16,7 @@ class PromocionController extends Controller
         $promociones=Promocion::find($id);
         if($promociones){
             $promociones->delete();
-            return response()->json('Promocion Eliminada',200);
+            return $this->index();
         }
         else
             return response()->json('No existe la Promocion', 409);
@@ -25,5 +25,16 @@ class PromocionController extends Controller
     public function store(Request $request){
         $promociones=Promocion::create($request->all());
         return response()->json($promociones);
+    }
+
+    public function update(Request $request,$id){
+        $promociones=Promocion::find($id);
+        if($promociones){
+            $promociones->update($request->all());
+            return $this->index();
+        }
+        else{
+            return response()->json('No existe el usuario',409);
+        }
     }
 }

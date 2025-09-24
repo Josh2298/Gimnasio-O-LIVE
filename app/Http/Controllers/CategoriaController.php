@@ -16,7 +16,7 @@ class CategoriaController extends Controller
         $categorias=Categoria::find($id);
         if($categorias){
             $categorias->delete();
-            return response()->json('Categoria Eliminada',200);
+            return $this->index();
         }
         else
             return response()->json('No existe categoria',409);
@@ -24,6 +24,17 @@ class CategoriaController extends Controller
 
     public function store(Request $request){
         $categorias=Categoria::create($request->all());
-        return response()->json($categorias);
+        return $this->index();
+    }
+
+    public function update(Request $request,$id){
+        $categorias=Categoria::find($id);
+        if($categorias){
+            $categorias->update($request->all());
+            return $this->index();
+        }
+        else{
+            return response()->json('No existe el usuario',409);
+        }
     }
 }

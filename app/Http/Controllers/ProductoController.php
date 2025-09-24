@@ -16,7 +16,7 @@ class ProductoController extends Controller
         $produtos=Producto::find($id);
         if($productos){
             $productos->delete();
-            return response()->json('Producto Eliminado',200);
+            return $this->index();
         }
         else
             return response()->json('No existe el Producto', 409);
@@ -24,6 +24,17 @@ class ProductoController extends Controller
 
     public function store(Request $request){
         $productos=Producto::create($request->all());
-        return response()->json($productos);
+        return $this->index();
+    }
+
+    public function update(Request $request,$id){
+        $user=User::find($id);
+        if($user){
+            $user->update($request->all());
+            return $this->index();
+        }
+        else{
+            return response()->json('No existe el usuario',409);
+        }
     }
 }
