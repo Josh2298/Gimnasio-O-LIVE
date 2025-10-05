@@ -26,4 +26,15 @@ class VentaController extends Controller
         $ventas=Venta::create($request->all());
         return response()->json($ventas);
     }
+
+    public function update(Request $request,$id){
+        $ventas=Venta::find($id);
+        if($ventas){
+            $ventas->update($request->all());
+            return $this->index();
+        }
+        else{
+            return response()->json('No existe la venta',409);
+        }
+    }
 }

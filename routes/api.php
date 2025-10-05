@@ -23,7 +23,7 @@ use App\Http\Controllers\VentaController;
 |
 */
 //Route::get('/mostrar',[UserController::class,'index']);
-Route::get('/mostrarAsistencia',[AsistenciaController::class,'index']);
+/*Route::get('/mostrarAsistencia',[AsistenciaController::class,'index']);
 Route::get('/mostrarCaja',[CajaController::class,'index']);
 Route::get('/mostrarCaja_log',[Caja_logController::class,'index']);
 Route::get('/mostrarCategoria',[CategoriaController::class,'index']);
@@ -52,8 +52,18 @@ Route::post('/promocion/nuevo',[PromocionController::class,'store']);
 Route::post('/venta/nuevo',[VentaController::class,'store']);
 
 //Route::put('/usuario/actualizar/{id}',[UserController::class,'update']);
+*/
+Route::resource('/asistencia',AsistenciaController::class);
+Route::resource('/categoria',CategoriaController::class);
+Route::resource('/item',ItemController::class);
+Route::resource('/producto',ProductoController::class);
+Route::resource('/promocion',PromocionController::class);
 
 Route::resource('/usuario',UserController::class);
+Route::post('/usuario/imagen',[UserController::class,'imageUpload']);
+Route::get('/usuario/imagen/{nombre}',[UserController::class,'image']);
+
+Route::resource('/venta',VentaController::class);
 //localhost:8000/api/mostrar
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
