@@ -13,6 +13,7 @@ class Caja_log extends Model
         'ingreso',
         'egreso',
         'descripcion',
-        'fecha'
+        'fecha',
+        'caja_id'
     ];
 }

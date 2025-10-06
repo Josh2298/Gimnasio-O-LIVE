@@ -17,7 +17,16 @@ class MembresiaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'plan'=>fake()->word(),
+            'monto'=>$this->faker->numberBetween(1,20),
+            'fecha_ini'=>fake()->date(),
+            'fecha_fin'=>fake()->date(),
+            'detalle'=>fake()->word(),
+            'disciplina'=>fake()->word(),
+            'ext_ini'=>fake()->date(),
+            'ext_fin'=>fake()->date(),
+            'detalle_ext'=>fake()->word(),
+            'user_id'=>$this->faker->numberBetween(1,15)
         ];
     }
 }

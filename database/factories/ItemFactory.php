@@ -17,7 +17,12 @@ class ItemFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'cantidad'=>$this->faker->numberBetween(1,10),
+            'precio'=>$this->faker->numberBetween(1,20),
+            'detalle'=>fake()->word(),
+            'producto_id'=>$this->faker->numberBetween(1,15),
+            'promocion_id'=>$this->faker->numberBetween(1,15),
+            'venta_id'=>$this->faker->numberBetween(1,15)
         ];
     }
 }

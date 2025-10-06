@@ -20,6 +20,8 @@ return new class extends Migration
             $table->foreign('producto_id')->references('id')->on('productos');
             $table->unsignedBigInteger('promocion_id');
             $table->foreign('promocion_id')->references('id')->on('promociones');
+            $table->unsignedBigInteger('venta_id');
+            $table->foreign('venta_id')->references('id')->on('ventas')->onDelete('cascade');
             $table->timestamps();
         });
     }

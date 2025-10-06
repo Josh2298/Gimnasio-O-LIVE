@@ -17,7 +17,10 @@ class CajaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nombre'=>fake()->word(),
+            'descripcion'=>fake()->word(),
+            'utilidad'=>$this->faker->numberBetween(0,20),
+            'saldo'=>$this->faker->numberBetween(0,20)
         ];
     }
 }

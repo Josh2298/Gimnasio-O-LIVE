@@ -23,23 +23,37 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        //User::factory(15)->create();
+        ///*
+        //Caja::factory(15)->create();
         //Categoria::factory(15)->create();
+        //Item::factory(10)->create();
+        //Membresia::factory(10)->create();
+        //Producto::factory(15)->create();
+        //Promocion::factory(15)->create();
+        //User::factory(15)->create();
+        //Venta::factory(15)->create();
+        //Asistencia::factory(15)->create();
+        Caja_log::factory(15)->create();
+        //*/
+
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        //User::create([
-        //    'ci'=>'7353263',
-        //    'nombre'=>'Jose',
-        //    'apellido'=>'Miranda Antezana',
-        //    'username'=>'josh2298',
-        //    'password'=>'josh2298',
-        //    'rol'=>'admin',
-        //    'imagen'=>'imagen.jpg',
-        //    'email'=>'admin@gmail.com'
-        //]);
+        /*
+        User::create([
+            'ci'=>'7353263',
+            'nombre'=>'Jose',
+            'apellido'=>'Miranda Antezana',
+            'username'=>'josh2298',
+            'password'=>'josh2298',
+            'rol'=>'admin',
+            'imagen'=>'imagen.jpg',
+            'email'=>'admin@gmail.com'
+        ]);
+        */
     }
 }

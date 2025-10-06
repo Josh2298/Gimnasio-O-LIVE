@@ -13,7 +13,6 @@ class Caja extends Model
         'nombre',
         'descripcion',
         'utilidad',
-        'saldo',
-        'caja_log_id'
+        'saldo'
     ];
 }
