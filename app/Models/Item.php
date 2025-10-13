@@ -14,6 +14,7 @@ class Item extends Model
         'precio',
         'detalle',
         'producto_id',
-        'promocion_id'
+        'promocion_id',
+        'venta_id'
     ];
 }

@@ -18,12 +18,12 @@ class AsistenciaFactory extends Factory
     {
         return [
             'ingreso'=>fake()->date(),
-            'casillero'=>fake()->number(),
+            'casillero'=>$this->faker->numberBetween(1,28),
             'hora_ing'=>fake()->time(),
             'hora_sal'=>fake()->time(),
             'rol'=>fake()->word(),
             'limpieza'=>fake()->word(),
-            'user_id'=>fake()->number()
+            'user_id'=>$this->faker->numberBetween(1,15)
         ];
     }
 }

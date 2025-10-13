@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cajas', function (Blueprint $table) {
+        Schema::create('caja_logs', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->double('ingreso');
+            $table->double('egreso');
             $table->string('descripcion');
-            $table->double('utilidad');
-            $table->double('saldo');
-            $table->unsignedBigInteger('caja_log_id');
-            $table->foreign('caja_log_id')->references('id')->on('caja_logs');
+            $table->date('fecha');
+            $table->unsignedBigInteger('caja_id');
+            $table->foreign('caja_id')->references('id')->on('cajas');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cajas');
+        Schema::dropIfExists('caja_logs');
     }
 };

@@ -17,7 +17,11 @@ class Caja_logFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'ingreso'=> $this->faker->numberBetween(0,20),
+            'egreso'=> $this->faker->numberBetween(0,20),
+            'descripcion'=> fake()->word(),
+            'fecha'=> fake()->date(),
+            'caja_id'=>$this->faker->numberBetween(1,15),
         ];
     }
 }

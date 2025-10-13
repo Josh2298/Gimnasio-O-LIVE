@@ -24,7 +24,7 @@ class VentaController extends Controller
 
     public function store(Request $request){
         $ventas=Venta::create($request->all());
-        return response()->json($ventas);
+        return $this->index();
     }
 
     public function update(Request $request,$id){

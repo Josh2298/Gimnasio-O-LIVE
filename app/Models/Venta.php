@@ -13,7 +13,6 @@ class Venta extends Model
         'pago_e',
         'pago_qr',
         'fecha_venta',
-        'user_id',
-        'item_id'
+        'user_id'
     ];
 }

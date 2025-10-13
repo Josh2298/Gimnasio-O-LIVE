@@ -9,7 +9,7 @@ class PromocionController extends Controller
 {
     public function index(){
         $promociones=Promocion::get(); //select * from users
-        return response()->json($users); 
+        return response()->json($promociones); 
     }//CRUD
 
     public function destroy($id){
@@ -24,7 +24,7 @@ class PromocionController extends Controller
 
     public function store(Request $request){
         $promociones=Promocion::create($request->all());
-        return response()->json($promociones);
+        return $this->index();
     }
 
     public function update(Request $request,$id){
@@ -34,7 +34,7 @@ class PromocionController extends Controller
             return $this->index();
         }
         else{
-            return response()->json('No existe el usuario',409);
+            return response()->json('No existe la promocion',409);
         }
     }
 }

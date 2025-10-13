@@ -37,4 +37,9 @@ class CategoriaController extends Controller
             return response()->json('No existe la categoria',409);
         }
     }
+
+    public function productos($id){
+        $productos=Categoria::Productos($id);
+        return response()->json($productos);
+    }
 }

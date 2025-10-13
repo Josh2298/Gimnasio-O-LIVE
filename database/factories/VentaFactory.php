@@ -17,7 +17,10 @@ class VentaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => $this->faker->numberBetween(1,10),
+            'pago_e'=> $this->faker->numberBetween(20,50),
+            'pago_qr' => $this->faker->numberBetween(20,50),
+            'fecha_venta' => $this->faker->date()
         ];
     }
 }
