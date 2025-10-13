@@ -34,7 +34,7 @@ class AsistenciaController extends Controller
             return $this->index();
         }
         else{
-            return response()->json('No existe el usuario',409);
+            return response()->json('No existe la asistencia',409);
         }
     }
 }

@@ -13,7 +13,7 @@ class ProductoController extends Controller
     }//CRUD
 
     public function destroy($id){
-        $produtos=Producto::find($id);
+        $productos=Producto::find($id);
         if($productos){
             $productos->delete();
             return $this->index();
@@ -28,13 +28,13 @@ class ProductoController extends Controller
     }
 
     public function update(Request $request,$id){
-        $user=User::find($id);
-        if($user){
-            $user->update($request->all());
+        $productos=Producto::find($id);
+        if($productos){
+            $productos->update($request->all());
             return $this->index();
         }
         else{
-            return response()->json('No existe el usuario',409);
+            return response()->json('No existe el producto ',409);
         }
     }
 }

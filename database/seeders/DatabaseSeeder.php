@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
         //User::factory(15)->create();
         //Venta::factory(15)->create();
         //Asistencia::factory(15)->create();
-        Caja_log::factory(15)->create();
+        //Caja_log::factory(15)->create();
         //*/
 
 

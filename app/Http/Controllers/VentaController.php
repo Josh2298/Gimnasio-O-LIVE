@@ -28,7 +28,7 @@ class VentaController extends Controller
     }
 
     public function update(Request $request,$id){
-        $ventas=Promocion::find($id);
+        $ventas=Venta::find($id);
         if($ventas){
             $ventas->update($request->all());
             return $this->index();
@@ -36,5 +36,10 @@ class VentaController extends Controller
         else{
             return response()->json('No existe la venta',409);
         }
+    }
+
+    public function detalle($id){
+        $detalle=Venta::Detalle($id);
+        return response()->json($detalle);
     }
 }

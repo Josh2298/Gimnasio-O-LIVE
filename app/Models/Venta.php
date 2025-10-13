@@ -15,4 +15,12 @@ class Venta extends Model
         'fecha_venta',
         'user_id'
     ];
+
+    public function scopeDetalle($query, $id){
+        return $query
+                     ->join('users','user_id','ventas.user_id')
+                     ->select('user.username','ventas.*')
+                     ->where('ventas.id',$id)
+                     ->get();
+    }
 }
