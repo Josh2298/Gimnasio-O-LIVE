@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Venta;
+use App\Models\Item;
 use Illuminate\Http\Request;
 
 class VentaController extends Controller
@@ -39,7 +40,8 @@ class VentaController extends Controller
     }
 
     public function detalle($id){
-        $detalle=Venta::Detalle($id);
+        $detalle=Venta::Detalle($id)->first();
+        $detalle->items=Item::Detalle($id);
         return response()->json($detalle);
     }
 }

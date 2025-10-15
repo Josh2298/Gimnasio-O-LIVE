@@ -31,9 +31,9 @@ class DatabaseSeeder extends Seeder
         //Producto::factory(20)->create();
         //Promocion::factory(15)->create();
         //Venta::factory(15)->create();
-        Item::factory(10)->create();
-        Asistencia::factory(10)->create();
-        Caja_log::factory(10)->create();
+        //Item::factory(10)->create();
+        //Asistencia::factory(10)->create();
+        //Caja_log::factory(10)->create();
         //*/
 
 
@@ -54,6 +54,6 @@ class DatabaseSeeder extends Seeder
             'imagen'=>'imagen.jpg',
             'email'=>'admin@gmail.com'
         ]);
-        */
+        /*/
     }
 }

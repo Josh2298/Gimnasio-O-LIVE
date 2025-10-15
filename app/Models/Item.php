@@ -17,4 +17,12 @@ class Item extends Model
         'promocion_id',
         'venta_id'
     ];
+    public function scopeDetalle($query,$id){
+        return $query
+                     ->join('productos','productos.id','items.producto_id')
+                     ->join('categorias','categorias.id','productos.categoria_id')
+                     ->select('categorias.tipo','productos.nombre','items.cantidad','items.precio','items.detalle')
+                     ->where('items.venta_id',$id)
+                     ->get();
+    }
 }
