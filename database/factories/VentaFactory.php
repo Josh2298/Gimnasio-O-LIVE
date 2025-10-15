@@ -18,6 +18,7 @@ class VentaFactory extends Factory
     {
         return [
             'user_id' => $this->faker->numberBetween(1,10),
+            'userclient_id' => $this->faker->numberBetween(1,10),
             'pago_e'=> $this->faker->numberBetween(20,50),
             'pago_qr' => $this->faker->numberBetween(20,50),
             'fecha_venta' => $this->faker->date()

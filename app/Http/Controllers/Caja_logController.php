@@ -19,7 +19,7 @@ class Caja_logController extends Controller
             return $this->index();
         }
         else
-            return response()->json('No existe el registro de caja', 409);
+            return response()->json('No existe la caja log', 409);
     }
 
     public function store(Request $request){
@@ -34,7 +34,7 @@ class Caja_logController extends Controller
             return $this->index();
         }
         else{
-            return response()->json('No existe el registro de caja',409);
+            return response()->json('No existe la caja log',409);
         }
     }
 }

@@ -17,13 +17,14 @@ return new class extends Migration
             $table->double('monto');
             $table->date('fecha_ini');
             $table->date('fecha_fin');
+            $table->string('estado');
             $table->string('detalle');
             $table->string('disciplina');
             $table->date('ext_ini');
             $table->date('ext_fin');
             $table->string('detalle_ext');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

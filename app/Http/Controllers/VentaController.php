@@ -37,4 +37,9 @@ class VentaController extends Controller
             return response()->json('No existe la venta',409);
         }
     }
+
+    public function detalle($id){
+        $detalle=Venta::Detalle($id);
+        return response()->json($detalle);
+    }
 }

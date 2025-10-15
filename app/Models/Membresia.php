@@ -14,6 +14,7 @@ class Membresia extends Model
         'monto',
         'fecha_ini',
         'fecha_fin',
+        'estado',
         'detalle',
         'disciplina',
         'ext_ini',

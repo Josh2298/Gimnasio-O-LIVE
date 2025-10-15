@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('descripcion');
             $table->date('fecha');
             $table->unsignedBigInteger('caja_id');
-            $table->foreign('caja_id')->references('id')->on('cajas');
+            $table->foreign('caja_id')->references('id')->on('cajas')->onDelete('cascade');
             $table->timestamps();
         });
     }

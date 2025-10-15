@@ -21,6 +21,7 @@ class MembresiaFactory extends Factory
             'monto'=>$this->faker->numberBetween(1,20),
             'fecha_ini'=>fake()->date(),
             'fecha_fin'=>fake()->date(),
+            'estado'=>fake()->word(),
             'detalle'=>fake()->word(),
             'disciplina'=>fake()->word(),
             'ext_ini'=>fake()->date(),

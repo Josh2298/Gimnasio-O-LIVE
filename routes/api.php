@@ -54,24 +54,22 @@ Route::post('/venta/nuevo',[VentaController::class,'store']);
 //Route::put('/usuario/actualizar/{id}',[UserController::class,'update']);
 */
 Route::resource('/asistencia',AsistenciaController::class);
-Route::resource('/categoria',CategoriaController::class);
+
 Route::resource('/item',ItemController::class);
 Route::resource('/producto',ProductoController::class);
 Route::resource('/promocion',PromocionController::class);
+
+Route::resource('/categoria',CategoriaController::class);
+Route::get('/categoria/productos/{id}',[CategoriaController::class,'productos']);
+
+Route::resource('/membresia',MembresiaController::class);
+Route::resource('/venta',VentaController::class);
+Route::get('/venta/detalle/{id}',[VentaController::class,'detalle']);
 
 Route::resource('/usuario',UserController::class);
 Route::post('/usuario/imagen',[UserController::class,'imageUpload']);
 Route::get('/usuario/imagen/{nombre}',[UserController::class,'image']);
 
-Route::get('/categoria/productos/{id}',[CategoriaController::class,'productos']);
-
-Route::resource('/asistencia',AsistenciaController::class);
-Route::resource('/categoria',CategoriaController::class);
-Route::resource('/item',ItemController::class);
-Route::resource('/membresia',MembresiaController::class);
-Route::resource('/producto',ProductoController::class);
-Route::resource('/promocion',PromocionController::class);
-Route::resource('/venta',VentaController::class);
 //localhost:8000/api/mostrar
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

@@ -17,8 +17,10 @@ return new class extends Migration
             $table->double('pago_qr');
             $table->date('fecha_venta');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('userclient_id');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('userclient_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
