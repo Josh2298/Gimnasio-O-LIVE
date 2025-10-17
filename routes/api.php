@@ -62,7 +62,7 @@ Route::resource('/membresia',MembresiaController::class);
 Route::resource('/producto',ProductoController::class);
 Route::resource('/promocion',PromocionController::class);
 Route::resource('/venta',VentaController::class);
-Route::get('/venta/detalle/{id}',[VentaController::class,'detalle']);
+Route::get('/venta/detalle/{fecha}/{userId}/{clienteId}',[VentaController::class,'detalle']);
 
 Route::resource('/usuario',UserController::class);
 Route::post('/usuario/imagen',[UserController::class,'imageUpload']);

@@ -39,9 +39,21 @@ class VentaController extends Controller
         }
     }
 
-    public function detalle($id){
-        $detalle=Venta::Detalle($id)->first();
-        $detalle->items=Item::Detalle($id);
+    public function detalle($fecha,$userId,$clienteId){
+        $detalle=Venta::Detalle();
+        if($fecha!=0)
+            $detalle=$detalle->where('ventas.fecha_venta',$fecha);
+        if($userId!=0)
+            $detalle=$detalle->where('vendedor.id',$userId);
+        if($clienteId!=0)
+            $detalle=$detalle->where('cliente.id',$clienteId);
+        $detalle=$detalle->get();
+        $i=0;
+        foreach($detalle as $item){
+            $id=$item->id;
+            $detalle[$i]->items=Item::Detalle($id);
+            $i++;
+        }
         return response()->json($detalle);
     }
 }
