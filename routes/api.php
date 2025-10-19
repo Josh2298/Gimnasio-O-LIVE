@@ -60,6 +60,8 @@ Route::get('/categoria/productos/{id}',[CategoriaController::class,'productos'])
 Route::resource('/item',ItemController::class);
 Route::resource('/membresia',MembresiaController::class);
 Route::resource('/producto',ProductoController::class);
+Route::get('/productos/meses/{gestion}',[ProductoController::class,'meses']);
+
 Route::resource('/promocion',PromocionController::class);
 Route::resource('/venta',VentaController::class);
 Route::get('/venta/detalle/{fecha}/{userId}/{clienteId}',[VentaController::class,'detalle']);

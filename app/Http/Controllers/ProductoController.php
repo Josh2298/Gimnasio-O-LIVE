@@ -37,4 +37,12 @@ class ProductoController extends Controller
             return response()->json('No existe el Producto',409);
         }
     }
+
+    public function meses($gestion){
+        $reportes=[];
+        for($i=1;$i<=12;$i++){
+            $reportes[$i]=Producto::Meses($gestion,$i)->get();
+        }
+        return response()->json($reportes);
+    }
 }
