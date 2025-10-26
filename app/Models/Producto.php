@@ -32,8 +32,7 @@ class Producto extends Model
               ->whereMonth('ventas.fecha_venta',$mes)
               ->groupBy('productos.id')
               ->groupBy('categorias.tipo')
-              ->groupBy('productos.nombre')
-              ->get();
+              ->groupBy('productos.nombre');
         return $query;
     }
 }
