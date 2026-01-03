@@ -12,6 +12,7 @@ use App\Http\Controllers\MembresiaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PromocionController;
 use App\Http\Controllers\VentaController;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -59,6 +60,9 @@ Route::post('login',[AuthController::class,'login']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::resource('/usuario',UserController::class);
+Route::post('/usuario/imagen',[UserController::class,'imageUpload']);
+Route::get('/usuario/imagen/{nombre}',[UserController::class,'image']);
 
 Route::group(['middleware' => 'auth:api'], function() {
         Route::resource('/asistencia',AsistenciaController::class);
@@ -74,7 +78,7 @@ Route::group(['middleware' => 'auth:api'], function() {
         Route::resource('/venta',VentaController::class);
         Route::get('/venta/detalle/{fecha}/{userId}/{clienteId}',[VentaController::class,'detalle']);
 
-        Route::resource('/usuario',UserController::class);
-        Route::post('/usuario/imagen',[UserController::class,'imageUpload']);
-        Route::get('/usuario/imagen/{nombre}',[UserController::class,'image']);
+        //Route::resource('/usuario',UserController::class);
+        //Route::post('/usuario/imagen',[UserController::class,'imageUpload']);
+        //Route::get('/usuario/imagen/{nombre}',[UserController::class,'image']);
 });
