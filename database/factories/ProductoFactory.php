@@ -18,6 +18,7 @@ class ProductoFactory extends Factory
     {
         return [
             'nombre'=>fake()->word(),
+            'imagen' => '12345.jpg',
             'precio_compra'=>$this->faker->numberBetween(1,20),
             'precio_venta'=>$this->faker->numberBetween(1,20),
             'cantidad_min'=>$this->faker->numberBetween(1,20),
