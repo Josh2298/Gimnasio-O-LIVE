@@ -15,6 +15,7 @@ use App\Models\Membresia;
 use App\Models\Producto;
 use App\Models\Promocion;
 use App\Models\Venta;
+use App\Models\Historial_corporal;
 
 class DatabaseSeeder extends Seeder
 {
@@ -34,8 +35,8 @@ class DatabaseSeeder extends Seeder
         //Item::factory(10)->create();
         //Asistencia::factory(10)->create();
         //Caja_log::factory(10)->create();
-        //*/
-
+        //*/ 
+        Historial_corporal::factory(10)->create();
 
         // \App\Models\User::factory(10)->create();
 

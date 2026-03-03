@@ -13,6 +13,7 @@ use App\Http\Controllers\MembresiaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PromocionController;
 use App\Http\Controllers\VentaController;
+use App\Http\Controllers\Historial_corporalController;
 //use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
@@ -55,7 +56,7 @@ Route::post('/venta/nuevo',[VentaController::class,'store']);
 
 //Route::put('/usuario/actualizar/{id}',[UserController::class,'update']);
 */
-Route::post('login',[AuthController::class,'login']);
+/* Route::post('login',[AuthController::class,'login']);
 
 //localhost:8000/api/mostrar
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -65,21 +66,42 @@ Route::resource('/usuario',UserController::class);
 Route::post('/usuario/imagen',[UserController::class,'imageUpload']);
 Route::get('/usuario/imagen/{nombre}',[UserController::class,'image']);
 
+Route::resource('/historial',Historial_corporalController::class);
+
+Route::resource('/asistencia',AsistenciaController::class);
+Route::resource('/categoria',CategoriaController::class);
+Route::get('/categoria/productos/{id}',[CategoriaController::class,'productos']);
+
+Route::resource('/item',ItemController::class);
+Route::resource('/membresia',MembresiaController::class);
+Route::resource('/producto',ProductoController::class);
+Route::post('/producto/imagen',[ProductoController::class,'imageUpload']);
+Route::get('/producto/imagen/{nombre}',[ProductoController::class,'image']);
+Route::get('/productos/meses/{gestion}',[ProductoController::class,'meses']);
+
+Route::resource('/promocion',PromocionController::class);
+Route::resource('/venta',VentaController::class);
+Route::get('/venta/detalle/{fecha}/{userId}/{clienteId}',[VentaController::class,'detalle']); */
+
+Route::post('/login', [AuthController::class, 'login']);
 Route::group(['middleware' => 'auth:api'], function() {
         Route::resource('/asistencia',AsistenciaController::class);
         Route::resource('/categoria',CategoriaController::class);
         Route::get('/categoria/productos/{id}',[CategoriaController::class,'productos']);
 
+        Route::resource('/historial',HistorialCorporalController::class);
         Route::resource('/item',ItemController::class);
         Route::resource('/membresia',MembresiaController::class);
         Route::resource('/producto',ProductoController::class);
+        Route::post('/producto/imagen',[ProductoController::class,'imageUpload']);
+        Route::get('/producto/imagen/{nombre}',[ProductoController::class,'image']);
         Route::get('/productos/meses/{gestion}',[ProductoController::class,'meses']);
 
         Route::resource('/promocion',PromocionController::class);
         Route::resource('/venta',VentaController::class);
         Route::get('/venta/detalle/{fecha}/{userId}/{clienteId}',[VentaController::class,'detalle']);
 
-        //Route::resource('/usuario',UserController::class);
-        //Route::post('/usuario/imagen',[UserController::class,'imageUpload']);
-        //Route::get('/usuario/imagen/{nombre}',[UserController::class,'image']);
+        Route::resource('/usuario',UserController::class);
+        Route::post('/usuario/imagen',[UserController::class,'imageUpload']);
+        Route::get('/usuario/imagen/{nombre}',[UserController::class,'image']);
 });

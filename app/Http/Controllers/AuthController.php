@@ -20,7 +20,7 @@ class AuthController extends Controller
         User::create([
             'name'=>$request->name,
             'email'=>$request->email,
-            'pasword'=>bcrypt($request->password)
+            'password'=>bcrypt($request->password)
         ]);
 
         return response()->json([
@@ -43,7 +43,8 @@ class AuthController extends Controller
                 'message'=>'Unauthorized'
             ], 401);
         
-            $user=$request->user();
+            $user=Auth::user();
+            
             $tokenResult=$user->createToken('Personal Access Token');
 
             $token=$tokenResult->token;
@@ -54,7 +55,8 @@ class AuthController extends Controller
             return response()->json([
                 'access_token'=>$tokenResult->accessToken,
                 'token_type'=>'Bearer',
-                'expires_at'=>Carbon::parse($token->expires_at)->toDateTimeString()
+                'expires_at'=>Carbon::parse($token->expires_at)->toDateTimeString(),
+                'user'=>$user
             ]);
     }
 
