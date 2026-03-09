@@ -63,9 +63,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::resource('/usuario',UserController::class);
-Route::post('/usuario/imagen',[UserController::class,'imageUpload']);
-Route::get('/usuario/imagen/{nombre}',[UserController::class,'image']);
-
 Route::resource('/historial',Historial_corporalController::class);
 
 Route::resource('/asistencia',AsistenciaController::class);
@@ -75,16 +72,22 @@ Route::get('/categoria/productos/{id}',[CategoriaController::class,'productos'])
 Route::resource('/item',ItemController::class);
 Route::resource('/membresia',MembresiaController::class);
 Route::resource('/producto',ProductoController::class);
-Route::post('/producto/imagen',[ProductoController::class,'imageUpload']);
-Route::get('/producto/imagen/{nombre}',[ProductoController::class,'image']);
+
 Route::get('/productos/meses/{gestion}',[ProductoController::class,'meses']);
 
 Route::resource('/promocion',PromocionController::class);
 Route::resource('/venta',VentaController::class);
 Route::get('/venta/detalle/{fecha}/{userId}/{clienteId}',[VentaController::class,'detalle']); */
 
+Route::post('/producto/imagen',[ProductoController::class,'imageUpload']);
+Route::get('/producto/imagen/{nombre}',[ProductoController::class,'image']);
+
+Route::post('/usuario/imagen',[UserController::class,'imageUpload']);
+Route::get('/usuario/imagen/{nombre}',[UserController::class,'image']);
+
 Route::post('/login', [AuthController::class, 'login']);
 Route::group(['middleware' => 'auth:api'], function() {
+    Route::group(['middleware' => 'role:admin'], function() {
         Route::resource('/asistencia',AsistenciaController::class);
         Route::resource('/categoria',CategoriaController::class);
         Route::get('/categoria/productos/{id}',[CategoriaController::class,'productos']);
@@ -93,8 +96,8 @@ Route::group(['middleware' => 'auth:api'], function() {
         Route::resource('/item',ItemController::class);
         Route::resource('/membresia',MembresiaController::class);
         Route::resource('/producto',ProductoController::class);
-        Route::post('/producto/imagen',[ProductoController::class,'imageUpload']);
-        Route::get('/producto/imagen/{nombre}',[ProductoController::class,'image']);
+        //Route::post('/producto/imagen',[ProductoController::class,'imageUpload']);
+        //Route::get('/producto/imagen/{nombre}',[ProductoController::class,'image']);
         Route::get('/productos/meses/{gestion}',[ProductoController::class,'meses']);
 
         Route::resource('/promocion',PromocionController::class);
@@ -102,6 +105,11 @@ Route::group(['middleware' => 'auth:api'], function() {
         Route::get('/venta/detalle/{fecha}/{userId}/{clienteId}',[VentaController::class,'detalle']);
 
         Route::resource('/usuario',UserController::class);
-        Route::post('/usuario/imagen',[UserController::class,'imageUpload']);
-        Route::get('/usuario/imagen/{nombre}',[UserController::class,'image']);
+        //Route::post('/usuario/imagen',[UserController::class,'imageUpload']);
+        //Route::get('/usuario/imagen/{nombre}',[UserController::class,'image']);
+    });
+    Route::group(['middleware' => 'role:admin,cliente'], function() {
+
+        Route::get('/producto', [ProductoController::class,'index']);
+    });
 });

@@ -53,10 +53,17 @@ class AuthController extends Controller
             $token->save();
 
             return response()->json([
-                'access_token'=>$tokenResult->accessToken,
+                /* 'access_token'=>$tokenResult->accessToken,
                 'token_type'=>'Bearer',
                 'expires_at'=>Carbon::parse($token->expires_at)->toDateTimeString(),
-                'user'=>$user
+                'user'=>$user */
+                'token' => $tokenResult->accessToken,
+                'user' => [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'rol' => $user->rol
+                ]
             ]);
     }
 

@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\File;
 
 class UserController extends Controller
 {
-    //public function index(){
-    //    $users=User::get(); //select * from users
-    //    return response()->json($users); 
-    //}//CRUD
+    /* public function index(){
+        $users=User::get(); //select * from users
+        return response()->json($users); 
+    }//CRUD */
 
     public function index(Request $request)
     {
