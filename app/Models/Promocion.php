@@ -12,9 +12,9 @@ class Promocion extends Model
     protected $fillable = [
         'id',
         'nombre',
-        '1persona',
-        '2persona',
-        '3persona',
+        'p1persona',
+        'p2persona',
+        'p3persona',
         'medio_mes',
         'trimestral',
         'semestral',
