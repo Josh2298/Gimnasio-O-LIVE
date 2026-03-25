@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Membresia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MembresiaController extends Controller
 {
@@ -31,10 +32,34 @@ class MembresiaController extends Controller
         $membresias=Membresia::find($id);
         if($membresias){
             $membresias->update($request->all());
-            return $this->index();
+            return response()->json([
+                'message' => 'Actualizado correctamente'
+            ]);
         }
         else{
             return response()->json('No existe la membresia',409);
         }
+    }
+    public function sesiones(Request $request)
+    {
+        $mes = $request->mes;
+        $anio = $request->anio;
+
+        $sesiones = Membresia::whereRaw('LOWER(plan) = ?', ['sesion'])
+            ->whereMonth('created_at', $mes)
+            ->whereYear('created_at', $anio)
+            ->get();
+        $totalSesiones = $sesiones->count();
+        $totalEfectivo = $sesiones->sum('p_efectivo');
+        $totalQr = $sesiones->sum('p_qr');
+        $totalMonto = $totalEfectivo + $totalQr;
+
+        return response()->json([
+            'data' => $sesiones,
+            'totalSesiones' => $totalSesiones,
+            'totalEfectivo' => $totalEfectivo,
+            'totalQr' => $totalQr,
+            'totalMonto' => $totalMonto
+        ]);
     }
 }

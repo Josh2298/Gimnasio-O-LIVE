@@ -36,4 +36,12 @@ class Producto extends Model
               ->groupBy('productos.nombre');
         return $query;
     }
+    public function scopeListar_todo($query){
+        return $query
+              ->join('categorias','categorias.id','productos.categoria_id')
+              ->select(
+                "productos.*",
+                  DB::raw('concat(categorias.tipo," ",productos.nombre) as name'),
+              )->get();
+    }
 }

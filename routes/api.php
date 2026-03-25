@@ -84,6 +84,7 @@ Route::get('/producto/imagen/{nombre}',[ProductoController::class,'image']);
 
 Route::post('/usuario/imagen',[UserController::class,'imageUpload']);
 Route::get('/usuario/imagen/{nombre}',[UserController::class,'image']);
+Route::get('/producto/listar/todo',[ProductoController::class,'listar_categorias']);
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::group(['middleware' => 'auth:api'], function() {
@@ -95,7 +96,9 @@ Route::group(['middleware' => 'auth:api'], function() {
         Route::resource('/historial',HistorialCorporalController::class);
         Route::resource('/item',ItemController::class);
         Route::resource('/membresia',MembresiaController::class);
+        Route::get('/sesiones', [MembresiaController::class, 'sesiones']);
         Route::resource('/producto',ProductoController::class);
+        
         //Route::post('/producto/imagen',[ProductoController::class,'imageUpload']);
         //Route::get('/producto/imagen/{nombre}',[ProductoController::class,'image']);
         Route::get('/productos/meses/{gestion}',[ProductoController::class,'meses']);

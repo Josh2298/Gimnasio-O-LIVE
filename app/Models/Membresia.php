@@ -11,7 +11,8 @@ class Membresia extends Model
     protected $fillable = [
         'id',
         'plan',
-        'monto',
+        'p_efectivo',
+        'p_qr',
         'fecha_ini',
         'fecha_fin',
         'estado',

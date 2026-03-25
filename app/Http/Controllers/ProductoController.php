@@ -68,4 +68,8 @@ class ProductoController extends Controller
             return response()->json("error",400);
         }
     }
+    public function listar_categorias(){
+        $item=Producto::Listar_todo();
+        return response()->json($item);
+    }
 }
