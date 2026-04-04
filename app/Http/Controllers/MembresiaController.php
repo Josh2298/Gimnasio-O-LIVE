@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Membresia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\CajaLog;
 
 class MembresiaController extends Controller
 {
@@ -62,4 +63,19 @@ class MembresiaController extends Controller
             'totalMonto' => $totalMonto
         ]);
     }
+    public function store(Request $request)
+{
+    DB::transaction(function () use ($request) {
+
+        Membresia::create($request->all());
+
+        CajaLog::create([
+            'ingreso' => $request->p_efectivo + $request->p_qr,
+            'egreso' => 0,
+            'descripcion' => 'Pago ' . $request->plan
+        ]);
+    });
+
+    return response()->json(['message' => 'Pago registrado']);
+}
 }

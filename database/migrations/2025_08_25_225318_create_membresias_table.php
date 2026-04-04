@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('membresias', function (Blueprint $table) {
             $table->id();
             $table->string('plan');
-            $table->double('monto');
+            $table->double('p_efectivo');
             $table->date('fecha_ini');
             $table->date('fecha_fin');
             $table->string('estado');

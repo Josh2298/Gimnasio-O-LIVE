@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('ci')->unique();
             $table->string('nombre');
             $table->string('apellido');
-            $table->string('username');
             $table->string('password');
             $table->string('rol');
             $table->string('imagen');
