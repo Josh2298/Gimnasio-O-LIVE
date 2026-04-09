@@ -63,19 +63,4 @@ class MembresiaController extends Controller
             'totalMonto' => $totalMonto
         ]);
     }
-    public function store(Request $request)
-{
-    DB::transaction(function () use ($request) {
-
-        Membresia::create($request->all());
-
-        CajaLog::create([
-            'ingreso' => $request->p_efectivo + $request->p_qr,
-            'egreso' => 0,
-            'descripcion' => 'Pago ' . $request->plan
-        ]);
-    });
-
-    return response()->json(['message' => 'Pago registrado']);
-}
 }
