@@ -13,6 +13,10 @@ class MembresiaController extends Controller
         $membresias=Membresia::get(); //select * from membresias
         return response()->json($membresias); 
     }//CRUD
+    public function indexcaja_log(){
+        $caja_logs=Caja_log::get(); //select * from caja_logs
+        return response()->json($caja_logs); 
+    }//CRUD
 
     public function destroy($id){
         $membresias=Membresia::find($id);
@@ -24,9 +28,15 @@ class MembresiaController extends Controller
             return response()->json('La Membresia no existe',409);
     }
 
-    public function store(Request $request){
+    /* public function store(Request $request){
         $membresias=Membresia::create($request->all());
         return $this->index();
+    } */
+    public function store(Request $request){
+        $membresias=Membresia::create($request->all());
+        $caja_logs=Caja_log::create($request->all());
+        return $this->index();
+        return $this->indexcaja_log();
     }
 
     public function update(Request $request,$id){

@@ -10,10 +10,13 @@ class Caja_log extends Model
     use HasFactory;
     protected $fillable = [
         'id',
-        'ingreso',
+        'ingreso_efectivo',
+        'ingreso_qr',
         'egreso',
         'descripcion',
         'fecha',
-        'caja_id'
+        'caja_id',
+        'user_id',
+        'admin_id'
     ];
 }
