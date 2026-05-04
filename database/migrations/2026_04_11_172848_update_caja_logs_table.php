@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('caja_logs', function (Blueprint $table) {
 
-            //agregar ingreso_qr debajo de ingreso_efectivo
+           /*  //agregar ingreso_qr debajo de ingreso_efectivo
             $table->decimal('ingreso_qr', 10, 2)
                   ->nullable()
                   ->after('ingreso_efectivo');
@@ -27,7 +27,7 @@ return new class extends Migration
 
             //claves foráneas (opcional pero recomendado)
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('admin_id')->references('id')->on('users');
+            $table->foreign('admin_id')->references('id')->on('users'); */
         });
     }
 
@@ -36,7 +36,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('caja_logs', function (Blueprint $table) {
+        /* Schema::table('caja_logs', function (Blueprint $table) {
 
             //eliminar claves foráneas
             $table->dropForeign(['user_id']);
@@ -44,6 +44,6 @@ return new class extends Migration
 
             //eliminar columnas
             $table->dropColumn(['ingreso_qr', 'user_id', 'admin_id']);
-        });
+        }); */
     }
 };
