@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('membresias', function (Blueprint $table) {
             // PROMOCION
-            $table->unsignedBigInteger('promocion_id')
+            /* $table->unsignedBigInteger('promocion_id')
             ->nullable()
             ->after('user_id');
 
@@ -26,7 +26,10 @@ return new class extends Migration
             $table->foreign('promocion_id')
             ->references('id')
             ->on('promociones')
-            ->onDelete('set null');
+            ->onDelete('set null'); */
+            $table->decimal('monto_total',10,2)
+            ->default(0)
+            ->after('p_qr');
     });
         
     }
