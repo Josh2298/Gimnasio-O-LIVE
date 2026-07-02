@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Historial_corporal extends Model
+class HistorialCorporal extends Model
 {
     use HasFactory;
     protected $fillable = [

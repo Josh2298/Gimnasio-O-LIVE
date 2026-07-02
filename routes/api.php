@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AsistenciaController;
-use App\Http\Controllers\Caja_logController;
+use App\Http\Controllers\CajaLogController;
 use App\Http\Controllers\CajaController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ItemController;
@@ -13,7 +13,7 @@ use App\Http\Controllers\MembresiaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PromocionController;
 use App\Http\Controllers\VentaController;
-use App\Http\Controllers\Historial_corporalController;
+use App\Http\Controllers\HistorialCorporalController;
 //use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
@@ -104,6 +104,7 @@ Route::group(['middleware' => 'auth:api'], function() {
         Route::get('/productos/meses/{gestion}',[ProductoController::class,'meses']);
 
         Route::resource('/promocion',PromocionController::class);
+        Route::post('/precio-promocion', [PromocionController::class,'precioPromocion']);
         Route::resource('/venta',VentaController::class);
         Route::get('/venta/detalle/{fecha}/{userId}/{clienteId}',[VentaController::class,'detalle']);
 
